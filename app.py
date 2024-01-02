@@ -30,9 +30,9 @@ def get_sales_data():
     """
     print("Please give sales for the last market")
     print("Data should be six numbers, separated by commas")
-    print("Example: 18, 20, 50, 30, 20, 30")
+    print("Example: 18, 20, 50, 30, 20, 30\n")
 
-    data_string = input("Enter your data here: ")
+    data_string = input("Enter your data here:")
     print(f"The data you provided is {data_string}")
 
 get_sales_data()
