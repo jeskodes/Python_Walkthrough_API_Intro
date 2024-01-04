@@ -28,22 +28,25 @@ def get_sales_data():
     """
     Get sales data input from user
     """
-    print("Please give sales for the last market")
-    print("Data should be six numbers, separated by commas")
-    print("Example: 18, 20, 50, 30, 20, 30\n")
+    while True:
+        print("Please give sales for the last market")
+        print("Data should be six numbers, separated by commas")
+        print("Example: 18, 20, 50, 30, 20, 30\n")
 
-    data_str = input("Enter your data here:") # User enters 6 numbers separated by commas
-    print(f"The data you provided is {data_str}")
+        data_str = input("Enter your data here:") # User enters 6 numbers separated by commas
+        print(f"The data you provided is {data_str}")
 
-    sales_data = data_str.split(",") # the data entered is being collected as string - want a list of values. 
-    print(sales_data)
-    # The split() method returns the values as a list. We removed the string commmas and turn the string into a list. 
+        sales_data = data_str.split(",") # the data entered is being collected as string - want a list of values. 
+        print(sales_data)
+        # The split() method returns the values as a list. We removed the string commmas and turn the string into a list. 
+
+        # print(sales_data) # check the string is being returned as a list. This is to check - can be deleted. 
     
-    # print(sales_data) # check the string is being returned as a list. This is to check - can be deleted. 
+        if validate_data(sales_data):
+            print("Valid data entered")
+            break # calling the validate_data function and passing it the sales_data
 
-    validate_data(sales_data) # calling the validate_data function and passing it the sales_data
-
-    # put the validate_data function inside the get_sales_data function. 
+        # put the validate_data function inside the get_sales_data function. 
 
 
 
@@ -70,6 +73,17 @@ def validate_data(values): #values is our sales data list
             print("Invalid data: Please enter numbers only, not letters.")
         else: 
             print(f"Invalid data: {e}, please try again\n")
+        return False
+    
+    return True
 
         
 get_sales_data() # Calling the function 
+
+
+"""
+Explain str(e).lower():
+Looking to match the default error message "invalid literal for int()"
+Converts the error message to a lowercase string so matches. 
+If this error message is given then will give custom error message. 
+"""
