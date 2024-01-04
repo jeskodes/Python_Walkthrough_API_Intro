@@ -36,7 +36,7 @@ def get_sales_data():
     print(f"The data you provided is {data_str}")
 
     sales_data = data_str.split(",") # the data entered is being collected as string - want a list of values. 
-
+    print(sales_data)
     # The split() method returns the values as a list. We removed the string commmas and turn the string into a list. 
     
     # print(sales_data) # check the string is being returned as a list. This is to check - can be deleted. 
@@ -50,21 +50,26 @@ def get_sales_data():
 # Want to validate data is exactly 6 numbers which we can convert to list and add to spreadsheet. 
 # Create function to validate data and give error message if don't receive data we need for spreadsheet. 
 
-def validate_data(values): #values is a our sales data list
+def validate_data(values): #values is our sales data list
     """
     Inside the try/except statement, validates the data is exactly 6 numbers and converts the string 
     into a list of integers. 
     Raises ValueError if string cannot be converted into into
     """
-    try: 
+    try:
+        [int(value) for value in values]
+        print(values) 
+
         if len(values) != 6: 
             raise ValueError(
                 f"Please provide 6 values, you provided {len(values)}"
              )
+
     except ValueError as e: 
-        print(f"Invalid data: {e}, please try again\n")
+        if "invalid literal for int()" in str(e).lower():
+            print("Invalid data: Please enter numbers only, not letters.")
+        else: 
+            print(f"Invalid data: {e}, please try again\n")
 
         
-
-
 get_sales_data() # Calling the function 
