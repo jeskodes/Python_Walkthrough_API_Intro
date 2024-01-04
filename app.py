@@ -29,8 +29,8 @@ def get_sales_data():
     Get sales data input from user
     """
     while True:
-        print("Please give sales for the last market")
-        print("Data should be six numbers, separated by commas")
+        print("Please give sales for the last market\n")
+        print("Data should be six numbers, separated by commas\n")
         print("Example: 18, 20, 50, 30, 20, 30\n")
 
         data_str = input("Enter your data here:") # User enters 6 numbers separated by commas
@@ -43,7 +43,7 @@ def get_sales_data():
         # print(sales_data) # check the string is being returned as a list. This is to check - can be deleted. 
     
         if validate_data(sales_data):
-            print("Valid data entered")
+            print("Figures added!")
             break # calling the validate_data function and passing it the sales_data
 
         # put the validate_data function inside the get_sales_data function. 
@@ -60,7 +60,7 @@ def validate_data(values): #values is our sales data list
     Raises ValueError if string cannot be converted into into
     """
     try:
-        [int(value) for value in values]
+        values = [int(value) for value in values]
         print(values) 
 
         if len(values) != 6: 
@@ -70,7 +70,7 @@ def validate_data(values): #values is our sales data list
 
     except ValueError as e: 
         if "invalid literal for int()" in str(e).lower():
-            print("Invalid data: Please enter numbers only, not letters.")
+            print("Invalid data: Please enter numbers only, not letters.\n")
         else: 
             print(f"Invalid data: {e}, please try again\n")
         return False
