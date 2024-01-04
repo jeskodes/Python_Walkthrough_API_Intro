@@ -33,7 +33,7 @@ def get_sales_data():
         print("Data should be six numbers, separated by commas\n")
         print("Example: 18, 20, 50, 30, 20, 30\n")
 
-        data_str = input("Enter your data here:") # User enters 6 numbers separated by commas
+        data_str = input("Enter your data here: \n") # User enters 6 numbers separated by commas
         print(f"The data you provided is {data_str}")
 
         sales_data = data_str.split(",") # the data entered is being collected as string - want a list of values. 
@@ -48,7 +48,7 @@ def get_sales_data():
 
         # put the validate_data function inside the get_sales_data function. 
 
-
+    return sales_data #this is the data returned from the get_sales_data function - need a place to put it. 
 
 # Want to validate data is exactly 6 numbers which we can convert to list and add to spreadsheet. 
 # Create function to validate data and give error message if don't receive data we need for spreadsheet. 
@@ -78,7 +78,7 @@ def validate_data(values): #values is our sales data list
     return True
 
         
-get_sales_data() # Calling the function 
+data = get_sales_data() # Calling the function. Put the data returned from the function in varialbe called "data"
 
 
 """
