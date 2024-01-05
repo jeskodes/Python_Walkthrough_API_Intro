@@ -84,7 +84,10 @@ def update_sales_worksheet(data):
     Create function to add data input into spreadsheet
     To create new row of data in spreadsheet
     """
-
+    print("Updating sales worksheet...\n")
+    sales_worksheet = SHEET.worksheet("sales") # Add variable to access worksheet - specifically "sales" sheet. 
+    sales_worksheet.append_row(data) # Use append_row() method to add a row to spreadsheet with new data. 
+    print("Success! Data has been added!\n")
         
 data = get_sales_data() # Calling the function. Put the data returned from the function in varialbe called "data"
 print(data) # Print data to check working should look like: ['1', ' 2', ' 3', '4', ' 5', '6'] in terminal. 
