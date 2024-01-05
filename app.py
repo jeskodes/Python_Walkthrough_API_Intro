@@ -88,14 +88,22 @@ def update_sales_worksheet(data):
     sales_worksheet = SHEET.worksheet("sales") # Add variable to access worksheet - specifically "sales" sheet. 
     sales_worksheet.append_row(data) # Use append_row() method to add a row to spreadsheet with new data. 
     print("Success! Data has been added!\n")
-        
-data = get_sales_data() # Calling the function. Put the data returned from the function in varialbe called "data"
-print(data) # Print data to check working should look like: ['1', ' 2', ' 3', '4', ' 5', '6'] in terminal. 
 
-sales_data = [int(num) for num in data] # Create variable sales_data where convert and store list into integers. 
-# Using list comprehension - could use a for loop. 
 
-update_sales_worksheet(sales_data) # Calling function at end to update worksheet. Passing it sales_data variable. 
+
+def main(): 
+    """
+    In Python wrap all functions in main function. 
+    Needs to be called below where it is defined.
+    """      
+    data = get_sales_data() # Calling the function. Put the data returned from the function in varialbe called "data"
+    
+    print(data) # Print data to check working should look like: ['1', ' 2', ' 3', '4', ' 5', '6'] in terminal. 
+
+    sales_data = [int(num) for num in data] # Create variable sales_data where convert and store list into integers. 
+    # Using list comprehension - could use a for loop. 
+
+    update_sales_worksheet(sales_data) # Calling function at end to update worksheet. Passing it sales_data variable. 
 
 """
 Explain str(e).lower():
