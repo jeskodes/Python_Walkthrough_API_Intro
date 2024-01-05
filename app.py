@@ -105,6 +105,10 @@ def main():
 
     update_sales_worksheet(sales_data) # Calling function at end to update worksheet. Passing it sales_data variable. 
 
+print("Welcome to Love Sandwiches Data Automation") # This is the first statement that will print before other functions called. 
+main()
+
+
 """
 Explain str(e).lower():
 Looking to match the default error message "invalid literal for int()"
