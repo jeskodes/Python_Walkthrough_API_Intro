@@ -2,6 +2,7 @@
 
 import gspread #importing gspread library 
 from google.oauth2.service_account import Credentials # this is like specifying the file path 
+from pprint import pprint
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -89,6 +90,16 @@ def update_sales_worksheet(data):
     sales_worksheet.append_row(data) # Use append_row() method to add a row to spreadsheet with new data. 
     print("Success! Data has been added!\n")
 
+def calculate_sales_data(sales_row): 
+    """
+    Function to compare sales vs stock - the surplus. 
+    The surplus is the number of sales - the stock for that day. 
+    Negative = extra sandwiches made
+    Positive = sandwiches left over and thrown away
+    """
+    print("Calculating surplus stock...\n")
+    stock = SHEET.worksheet("stock").get_all_values() # Get stock data and put into variable called stock.
+    pprint(stock) 
 
 
 def main(): 
@@ -104,6 +115,8 @@ def main():
     # Using list comprehension - could use a for loop. 
 
     update_sales_worksheet(sales_data) # Calling function at end to update worksheet. Passing it sales_data variable. 
+
+    calculate_sales_data(sales_data) # Calling Function to calculate surplus stock. 
 
 print("Welcome to Love Sandwiches Data Automation") # This is the first statement that will print before other functions called. 
 main()
