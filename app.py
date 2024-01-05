@@ -100,6 +100,8 @@ def calculate_sales_data(sales_row):
     print("Calculating surplus stock...\n")
     stock = SHEET.worksheet("stock").get_all_values() # Get stock data and put into variable called stock.
     pprint(stock) 
+    stock_row = [sublist for sublist in stock][-1] # Variable to store last row in list of stock data. 
+    print(stock_row)
 
 
 def main(): 
@@ -127,4 +129,9 @@ Explain str(e).lower():
 Looking to match the default error message "invalid literal for int()"
 Converts the error message to a lowercase string so matches. 
 If this error message is given then will give custom error message. 
+
+Accessing last list in stock data - create variable to store in then use list comprehension:
+In this code, the list comprehension [sublist for sublist in data] creates a new list containing
+all the sublists in the original data. 
+The [-1] index then selects the last element (last sublist) in this new list.
 """
