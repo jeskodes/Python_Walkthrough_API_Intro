@@ -27,6 +27,8 @@ sales = SHEET.worksheet('sales')
 def get_sales_data(): 
     """
     Get sales data input from user
+    While loop to continually request data of 6 numbers separated by commas. 
+    Break when receive required data. 
     """
     while True:
         print("\nPlease give sales for the last market\n")
@@ -57,7 +59,7 @@ def validate_data(values): #values is our sales data list
     """
     Inside the try/except statement, validates the data is exactly 6 numbers and converts the string 
     into a list of integers. 
-    Raises ValueError if string cannot be converted into into
+    Raises ValueError if string cannot be converted into int
     """
     try:
         values = [int(value) for value in values]
@@ -77,9 +79,20 @@ def validate_data(values): #values is our sales data list
     
     return True
 
+def update_sales_worksheet(data):
+    """
+    Create function to add data input into spreadsheet
+    To create new row of data in spreadsheet
+    """
+
         
 data = get_sales_data() # Calling the function. Put the data returned from the function in varialbe called "data"
+print(data) # Print data to check working should look like: ['1', ' 2', ' 3', '4', ' 5', '6'] in terminal. 
 
+sales_data = [int(num) for num in data] # Create variable sales_data where convert and store list into integers. 
+# Using list comprehension - could use a for loop. 
+
+update_sales_worksheet(sales_data) # Calling function at end to update worksheet. Passing it sales_data variable. 
 
 """
 Explain str(e).lower():
