@@ -96,6 +96,7 @@ def calculate_sales_data(sales_row):
     The surplus is the number of sales - the stock for that day. 
     Negative = extra sandwiches made
     Positive = sandwiches left over and thrown away
+    Zip() method loops through more than one list at one time. 
     """
     print("Calculating surplus stock...\n")
     stock = SHEET.worksheet("stock").get_all_values() # Get stock data and put into variable called stock.
@@ -109,7 +110,15 @@ def calculate_sales_data(sales_row):
 
     return surplus_stock
 
-
+def update_surplus_worksheet(surplus_data):
+    """
+    Create function to add calculated surplus data input into spreadsheet
+    To create new row of surplus data in spreadsheet
+    """
+    print("Updating surplus worksheet...\n")
+    surplus_worksheet = SHEET.worksheet("surplus") # Add variable to access worksheet - specifically "sales" sheet. 
+    surplus_worksheet.append_row(surplus_data) # Use append_row() method to add a row to spreadsheet with new data. 
+    print("Success! Surplus stock has been saved!\n")
 
 def main(): 
     """
@@ -127,6 +136,8 @@ def main():
 
     new_surplus_stock = calculate_sales_data(sales_data) # Calling Function to calculate surplus stock. 
     print(new_surplus_stock)
+
+    update_surplus_worksheet(new_surplus_stock)
 
 print("\nWelcome to Love Sandwiches Data Automation") # This is the first statement that will print before other functions called. 
 main()
