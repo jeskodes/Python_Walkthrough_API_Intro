@@ -101,7 +101,14 @@ def calculate_sales_data(sales_row):
     stock = SHEET.worksheet("stock").get_all_values() # Get stock data and put into variable called stock.
     # pprint(stock) 
     stock_row = stock[-1] # Variable to store last row in list of stock data. 
-    print(stock_row)
+
+    surplus_stock = []
+    for stock, sales in zip(stock_row, sales_row):
+        surplus = int(stock) - sales
+        surplus_stock.append(surplus)
+
+    return surplus_stock
+
 
 
 def main(): 
@@ -118,9 +125,10 @@ def main():
 
     update_sales_worksheet(sales_data) # Calling function at end to update worksheet. Passing it sales_data variable. 
 
-    calculate_sales_data(sales_data) # Calling Function to calculate surplus stock. 
+    new_surplus_stock = calculate_sales_data(sales_data) # Calling Function to calculate surplus stock. 
+    print(new_surplus_stock)
 
-print("Welcome to Love Sandwiches Data Automation") # This is the first statement that will print before other functions called. 
+print("\nWelcome to Love Sandwiches Data Automation") # This is the first statement that will print before other functions called. 
 main()
 
 
