@@ -137,7 +137,7 @@ def main():
     new_surplus_stock = calculate_sales_data(sales_data) # Calling Function to calculate surplus stock. 
     print(new_surplus_stock)
 
-    update_surplus_worksheet(new_surplus_stock)
+    update_surplus_worksheet(new_surplus_stock) # calling function to update surplus sheet with new data 
 
 print("\nWelcome to Love Sandwiches Data Automation") # This is the first statement that will print before other functions called. 
 main()
