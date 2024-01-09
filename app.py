@@ -147,7 +147,8 @@ def get_last_five_entries():
         # print(ind)
         column = sales.col_values(ind) # Create column variable use col_values method and pass ind variable
         columns.append(column[-5:]) # append column list to columns ?variable. Use slice -5 (last 5) and : for multiple values
-    pprint(columns) # pprint(pretty print) prints out data that looks prettier/more readable for humans
+    # pprint(columns) # pprint(pretty print) prints out data that looks prettier/more readable for humans
+    return columns # return column variable from our function
 
 
 def main(): 
@@ -172,7 +173,7 @@ def main():
 print("\nWelcome to Love Sandwiches Data Automation") # This is the first statement that will print before other functions called. 
 # main()
 
-get_last_five_entries()
+sales_columns = get_last_five_entries() # sales columns is a variable to store the data return from the get_last..function
 
 
 """
