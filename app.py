@@ -133,6 +133,14 @@ def calculate_sales_data(sales_row):
 
     return surplus_stock
 
+def get_last_five_entries():
+    """
+    Get last 5 days worth of sales from spreadsheet
+    Get columns and return as list of lists. 
+    """
+    sales = SHEET.worksheet('sales') # variable to get data
+    column = sales.col_values(3) # Use col_values() method to ask for column
+
 
 def main(): 
     """
