@@ -139,7 +139,15 @@ def get_last_five_entries():
     Get columns and return as list of lists. 
     """
     sales = SHEET.worksheet('sales') # variable to get data
-    column = sales.col_values(3) # Use col_values() method to ask for column
+    # column = sales.col_values(3) # Use col_values() method to ask for column
+    # print(column) # test if function working so far. Comment out call to main function. 
+
+    columns = [] # create empty list 
+    for ind in range(1, 7): # ind variable gets last 5 entries in column
+        # print(ind)
+        column = sales.col_values(ind) # Create column variable use col_values method and pass ind variable
+        columns.append(column) # append column list to columns ?variable
+    pprint(columns) # pprint(pretty print) prints out data that looks prettier/more readable for humans
 
 
 def main(): 
@@ -162,7 +170,9 @@ def main():
     update_worksheet(new_surplus_stock, 'surplus') # calling function to update surplus sheet with new data. 
 
 print("\nWelcome to Love Sandwiches Data Automation") # This is the first statement that will print before other functions called. 
-main()
+# main()
+
+get_last_five_entries()
 
 
 """
