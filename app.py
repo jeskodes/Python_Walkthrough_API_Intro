@@ -146,7 +146,7 @@ def get_last_five_entries():
     for ind in range(1, 7): # ind variable gets last 5 entries in column
         # print(ind)
         column = sales.col_values(ind) # Create column variable use col_values method and pass ind variable
-        columns.append(column) # append column list to columns ?variable
+        columns.append(column[-5:]) # append column list to columns ?variable. Use slice -5 (last 5) and : for multiple values
     pprint(columns) # pprint(pretty print) prints out data that looks prettier/more readable for humans
 
 
