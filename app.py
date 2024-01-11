@@ -155,6 +155,18 @@ def calculate_new_stock_data(data): # data is a placeholder will pass Sales_colu
     Function to get average of last 5 days sales for each sandwich type. 
     Then will add 10% to suggest how many sandwiches should make for next market. 
     """
+    print("Calculating new stock data...")
+
+
+    new_stock_data = [] # empty list to store the average for each s/w type for last 5 markets
+    
+    for column in data: # for loop to work out average
+        int_column = [int(num) for num in column] # list comprehension to convert list into integers
+        average = sum(int_column) / len(int_column)
+        stock_num = average * 1.1 # This variable takes average and * by 1.1 which is 10% 
+        new_stock_data.append(round(stock_num)) # Adding average *1.1 to empty new_stock_data variable
+    
+    print(new_stock_data)
 
 def main(): 
     """
