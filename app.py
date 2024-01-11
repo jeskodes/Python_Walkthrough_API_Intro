@@ -155,7 +155,7 @@ def calculate_new_stock_data(data): # data is a placeholder will pass Sales_colu
     Function to get average of last 5 days sales for each sandwich type. 
     Then will add 10% to suggest how many sandwiches should make for next market. 
     """
-    print("Calculating new stock data...")
+    print("Calculating new stock data...\n")
 
 
     new_stock_data = [] # empty list to store the average for each s/w type for last 5 markets
@@ -165,8 +165,7 @@ def calculate_new_stock_data(data): # data is a placeholder will pass Sales_colu
         average = sum(int_column) / len(int_column)
         stock_num = average * 1.1 # This variable takes average and * by 1.1 which is 10% 
         new_stock_data.append(round(stock_num)) # Adding average *1.1 to empty new_stock_data variable
-    
-    # print(new_stock_data)
+
     return new_stock_data # return value from function and below assign variable to hold data returned from fn
 
 def main(): 
@@ -190,10 +189,14 @@ def main():
 
     sales_columns = get_last_five_entries() # sales columns is a variable to store the data return from the get_last..function
 
-    calculate_new_stock_data(sales_columns) # Passing sales_columns to this function to get average sold + 10%
+    stock_data = calculate_new_stock_data(sales_columns) # Passing sales_columns to this function to get average sold + 10%
+
+    update_worksheet(stock_data, 'stock') # Update worksheet with stock_data to stock worksheet
+
+    # print(stock_data) # stock data variable created to print prediction for next markets
 
 print("\nWelcome to Love Sandwiches Data Automation") # This is the first statement that will print before other functions called. 
-# main()
+main()
 
 
 """
