@@ -168,6 +168,34 @@ def calculate_new_stock_data(data): # data is a placeholder will pass Sales_colu
 
     return new_stock_data # return value from function and below assign variable to hold data returned from fn
 
+def get_stock_values(data):
+    """
+    Retrieve headings from the worksheet and create a dictionary using
+    the headings as keys and data as values.
+    """
+    headings = SHEET.worksheet("stock").get_all_values()[0]
+    """
+    SHEET.worksheet("stock"): This part accesses the "stock" worksheet from the Google Sheets document.
+    .get_all_values(): This method retrieves all the values from the worksheet.
+    [0]: This indexing retrieves the first row of values, which is assumed to be the headings (column names).
+    So, headings is a list that contains the column names or headings of the "stock" worksheet.
+    """
+    stock_dict = {headings[i]: data[i] for i in range(len(headings))}
+    """
+    {}: This syntax creates an empty dictionary.
+    {headings[i]: data[i] for i in range(len(headings))}: This is a dictionary comprehension. 
+    It iterates over the indices of the headings list and creates key-value pairs in the dictionary. 
+    Each key is a heading, and the corresponding value is the element at the same index in the data list.
+    So, stock_dict is a dictionary where the keys are the headings from the "stock" worksheet, 
+    and the values are the corresponding elements from the data list.
+    """
+    return stock_dict
+
+    """
+    headings is a list containing the column names of the "stock" worksheet, 
+    and stock_dict is a dictionary mapping these column names to the corresponding values in the data list.
+    """
+
 def main(): 
     """
     In Python wrap all functions in main function. 
@@ -194,6 +222,10 @@ def main():
     update_worksheet(stock_data, 'stock') # Update worksheet with stock_data to stock worksheet
 
     # print(stock_data) # stock data variable created to print prediction for next markets
+
+    stock_values = get_stock_values(stock_data) # Call the function and assign the result to the variable stock_values
+
+    print(stock_values) # Print the variable stock_values to the terminal
 
 print("\nWelcome to Love Sandwiches Data Automation") # This is the first statement that will print before other functions called. 
 main()
