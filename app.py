@@ -166,7 +166,8 @@ def calculate_new_stock_data(data): # data is a placeholder will pass Sales_colu
         stock_num = average * 1.1 # This variable takes average and * by 1.1 which is 10% 
         new_stock_data.append(round(stock_num)) # Adding average *1.1 to empty new_stock_data variable
     
-    print(new_stock_data)
+    # print(new_stock_data)
+    return new_stock_data # return value from function and below assign variable to hold data returned from fn
 
 def main(): 
     """
@@ -187,12 +188,14 @@ def main():
 
     update_worksheet(new_surplus_stock, 'surplus') # calling function to update surplus sheet with new data. 
 
+    sales_columns = get_last_five_entries() # sales columns is a variable to store the data return from the get_last..function
+
+    calculate_new_stock_data(sales_columns) # Passing sales_columns to this function to get average sold + 10%
+
 print("\nWelcome to Love Sandwiches Data Automation") # This is the first statement that will print before other functions called. 
 # main()
 
-sales_columns = get_last_five_entries() # sales columns is a variable to store the data return from the get_last..function
 
-calculate_new_stock_data(sales_columns) # Passing sales_columns to this function to get average sold + 10%
 """
 Explain str(e).lower():
 Looking to match the default error message "invalid literal for int()"
