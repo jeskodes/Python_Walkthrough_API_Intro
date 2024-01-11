@@ -150,6 +150,11 @@ def get_last_five_entries():
     # pprint(columns) # pprint(pretty print) prints out data that looks prettier/more readable for humans
     return columns # return column variable from our function
 
+def calculate_new_stock_data(data): # data is a placeholder will pass Sales_columns variable
+    """
+    Function to get average of last 5 days sales for each sandwich type. 
+    Then will add 10% to suggest how many sandwiches should make for next market. 
+    """
 
 def main(): 
     """
@@ -175,7 +180,7 @@ print("\nWelcome to Love Sandwiches Data Automation") # This is the first statem
 
 sales_columns = get_last_five_entries() # sales columns is a variable to store the data return from the get_last..function
 
-
+calculate_new_stock_data(sales_columns) # Passing sales_columns to this function to get average sold + 10%
 """
 Explain str(e).lower():
 Looking to match the default error message "invalid literal for int()"
