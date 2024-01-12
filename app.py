@@ -189,6 +189,7 @@ def get_stock_values(data):
     So, stock_dict is a dictionary where the keys are the headings from the "stock" worksheet, 
     and the values are the corresponding elements from the data list.
     """
+    print("Make the following numbers of sandwiches for next market:\n")
     return stock_dict
 
     """
