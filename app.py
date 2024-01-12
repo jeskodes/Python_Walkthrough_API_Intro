@@ -197,6 +197,15 @@ def get_stock_values(data):
     and stock_dict is a dictionary mapping these column names to the corresponding values in the data list.
     """
 
+    """
+    CI Solution:
+    return {heading: data for heading, data in zip(headings, data)}
+    
+stock_values = get_stock_values(stock_data)
+
+print(stock_values)
+    """
+
 def main(): 
     """
     In Python wrap all functions in main function. 
